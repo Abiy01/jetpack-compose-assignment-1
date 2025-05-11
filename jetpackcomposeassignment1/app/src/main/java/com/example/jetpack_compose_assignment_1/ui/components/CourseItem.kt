@@ -13,8 +13,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpack_compose_assignment_1.model.Course
+import com.example.jetpack_compose_assignment_1.ui.theme.JetpackComposeAssignment1Theme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -101,5 +103,37 @@ fun CourseItem(
                 }
             }
         }
+    }
+}
+
+@Preview(name = "CourseItem Light", showBackground = true)
+@Composable
+fun CourseItemLightPreview() {
+    JetpackComposeAssignment1Theme(darkTheme = false) {
+        CourseItem(
+            course = Course(
+                title = "Android Development",
+                code = "CS101",
+                creditHours = 3,
+                description = "Learn Android development with Jetpack Compose",
+                prerequisites = listOf("Java Programming", "Basic UI Design")
+            )
+        )
+    }
+}
+
+@Preview(name = "CourseItem Dark", showBackground = true)
+@Composable
+fun CourseItemDarkPreview() {
+    JetpackComposeAssignment1Theme(darkTheme = true) {
+        CourseItem(
+            course = Course(
+                title = "Android Development",
+                code = "CS101",
+                creditHours = 3,
+                description = "Learn Android development with Jetpack Compose",
+                prerequisites = listOf("Java Programming", "Basic UI Design")
+            )
+        )
     }
 } 

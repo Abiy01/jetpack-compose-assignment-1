@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.jetpack_compose_assignment_1.model.Course
 import com.example.jetpack_compose_assignment_1.ui.components.CourseList
 import com.example.jetpack_compose_assignment_1.ui.theme.JetpackComposeAssignment1Theme
@@ -31,6 +32,32 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun CourseListScreen() {
     CourseList(courses = sampleCourses)
+}
+
+@Preview(name = "CourseListScreen Light", showBackground = true)
+@Composable
+fun CourseListScreenLightPreview() {
+    JetpackComposeAssignment1Theme(darkTheme = false) {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {
+            CourseListScreen()
+        }
+    }
+}
+
+@Preview(name = "CourseListScreen Dark", showBackground = true)
+@Composable
+fun CourseListScreenDarkPreview() {
+    JetpackComposeAssignment1Theme(darkTheme = true) {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {
+            CourseListScreen()
+        }
+    }
 }
 
 private val sampleCourses = listOf(
